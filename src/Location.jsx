@@ -14,7 +14,6 @@ export const Location = () => {
     const [selectedState, setSelectedState] = useState();
     const [cities, setCities] = useState([defaultCity]);
     const [selectedCity, setSelectedCity] = useState();
-
     // #endregion
 
     // #region "useEffect"
@@ -24,12 +23,11 @@ export const Location = () => {
             //Creating a variable that has an array of all country    
             const data = await fetchCountries();
             //Using setter method of useState we assigned the array of countries(allCountries) to countries of useState   
-            setCountries((prev) => [...prev, ...data]);
+            setCountries([defaultCountry, ...data]);
         }
         //Calling the function to get the countries array
         fetchingCountries();
     }, [])
-
     // #endregion
 
     // #region "functions"
@@ -77,9 +75,7 @@ export const Location = () => {
     const onCityChange = (event) => {
         setSelectedCity(event.target.value);
     }
-
     // #endregion
-
 
     return (
         <div >
